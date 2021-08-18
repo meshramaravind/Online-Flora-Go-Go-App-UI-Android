@@ -1,6 +1,5 @@
 package com.arvind.jetcomposeloginui.view
 
-import android.util.Log
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -24,13 +23,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
-import androidx.viewpager.widget.ViewPager
+import androidx.navigation.NavController
 import com.arvind.jetcomposeloginui.R
+import com.arvind.jetcomposeloginui.navigation.Screen
 import com.arvind.jetcomposeloginui.ui.theme.*
 
-@Preview(showBackground = true)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
     var pageCount by remember { mutableStateOf(0) }
     Box(
         modifier = Modifier
@@ -80,7 +79,7 @@ fun HomeScreen() {
                     Spacer(modifier = Modifier.padding(20.dp))
                     CategoryView()
                     Spacer(modifier = Modifier.padding(10.dp))
-                    PopularItemSection()
+                    PopularItemSection(navController)
                     Spacer(modifier = Modifier.padding(10.dp))
 
                 }
@@ -228,7 +227,7 @@ fun CategoryView() {
 @Composable
 fun CategoryButton(
     icon: Painter,
-    backgroundColor: Color
+    backgroundColor: Color,
 ) {
     Box(
         Modifier
@@ -247,7 +246,7 @@ fun CategoryButton(
 }
 
 @Composable
-fun PopularItemSection() {
+fun PopularItemSection(navController: NavController) {
     Row(
         modifier = Modifier
             .fillMaxWidth(),
@@ -256,7 +255,7 @@ fun PopularItemSection() {
     ) {
         Text(text = "Popular Items", style = MaterialTheme.typography.h6)
         TextButton(onClick = {
-
+            navController.navigate(Screen.PopularListScreen.route)
         }) {
             Text(text = "View All", color = colorPrimary)
         }
