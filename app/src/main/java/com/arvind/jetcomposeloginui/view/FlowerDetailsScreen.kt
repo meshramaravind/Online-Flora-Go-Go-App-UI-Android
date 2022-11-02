@@ -38,10 +38,14 @@ fun FlowerDetailsScreen(navController: NavController) {
         )
 
     }, backgroundColor = bgwhitelight,
-        content = {
-            Box(modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())) {
+        content = { padding ->
+
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding)
+                    .verticalScroll(rememberScrollState())
+            ) {
 
                 ConstraintLayout {
                     val (imagesliderref, addtocartref) = createRefs()
@@ -57,8 +61,10 @@ fun FlowerDetailsScreen(navController: NavController) {
                     }
                     Surface(color = colorPrimary,
                         shape = RoundedCornerShape(40.dp)
-                            .copy(bottomStart = ZeroCornerSize,
-                                bottomEnd = ZeroCornerSize), modifier = Modifier
+                            .copy(
+                                bottomStart = ZeroCornerSize,
+                                bottomEnd = ZeroCornerSize
+                            ), modifier = Modifier
                             .fillMaxSize()
                             .padding(top = 300.dp)
                             .constrainAs(addtocartref) {
@@ -66,9 +72,11 @@ fun FlowerDetailsScreen(navController: NavController) {
                                 start.linkTo(parent.start)
                                 end.linkTo(parent.end)
                             }) {
-                        Column(modifier = Modifier
-                            .fillMaxSize()
-                            .padding(20.dp)) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(20.dp)
+                        ) {
 
                             FlowerTitleSubtitle()
                             Spacer(modifier = Modifier.padding(10.dp))
@@ -92,13 +100,17 @@ fun FlowerDetailsScreen(navController: NavController) {
 @Composable
 fun FlowerTitleSubtitle() {
     Column(modifier = Modifier.fillMaxWidth()) {
-        Text(text = "Jannien Flower Bouquet",
+        Text(
+            text = "Jannien Flower Bouquet",
             style = MaterialTheme.typography.h6,
-            color = white)
+            color = white
+        )
 
-        Text(text = "includes jannein flower, lily leaves",
+        Text(
+            text = "includes jannein flower, lily leaves",
             style = MaterialTheme.typography.caption,
-            color = white)
+            color = white
+        )
     }
 }
 
@@ -168,36 +180,46 @@ fun AddtoCartPrice() {
 @Composable
 fun FlowerAbout() {
     Column(modifier = Modifier.fillMaxWidth()) {
-        Text(text = "About",
+        Text(
+            text = "About",
             style = MaterialTheme.typography.h6,
-            color = white)
+            color = white
+        )
         Spacer(modifier = Modifier.padding(5.dp))
 
-        Text(text = "Lorem ipsum is simply dummy text of the printing and \n" +
-                "typesetting industry. Loremk ipsum has been the industy's \n" +
-                "standard dummy text ever since the 1500s.",
+        Text(
+            text = "Lorem ipsum is simply dummy text of the printing and \n" +
+                    "typesetting industry. Loremk ipsum has been the industy's \n" +
+                    "standard dummy text ever since the 1500s.",
             style = MaterialTheme.typography.caption,
-            color = white)
+            color = white
+        )
     }
 }
 
 @Composable
 fun FlowerAddtoCartButton(navController: NavController) {
-    Column(modifier = Modifier.fillMaxWidth(),
+    Column(
+        modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Bottom) {
-        Button(onClick = {
-            navController.navigate(Screen.AddToCartScreen.route)
-        },
+        verticalArrangement = Arrangement.Bottom
+    ) {
+        Button(
+            onClick = {
+                navController.navigate(Screen.AddToCartScreen.route)
+            },
             colors = ButtonDefaults.buttonColors(backgroundColor = white),
             modifier = Modifier
                 .padding(8.dp)
                 .fillMaxWidth()
                 .height(60.dp),
-            shape = RoundedCornerShape(16.dp)) {
-            Text(text = "Add to Cart",
+            shape = RoundedCornerShape(16.dp)
+        ) {
+            Text(
+                text = "Add to Cart",
                 color = colorPrimary,
-                fontWeight = FontWeight.Bold)
+                fontWeight = FontWeight.Bold
+            )
             Icon(
                 imageVector = Icons.Default.ArrowForward,
                 contentDescription = null,
@@ -214,19 +236,23 @@ fun FlowerAddtoCartButton(navController: NavController) {
 
 @Composable
 fun HeaderImagesSlider(pageCount: Int) {
-    Column(verticalArrangement = Arrangement.Center,
+    Column(
+        verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
-            .padding(top = 10.dp)) {
+            .padding(top = 10.dp)
+    ) {
 
         Box(modifier = Modifier.fillMaxHeight()) {
 
-            Image(painter = painterResource(id = R.drawable.ic_pink_rose_bouquet),
+            Image(
+                painter = painterResource(id = R.drawable.ic_pink_rose_bouquet),
                 contentDescription = "",
                 modifier = Modifier
                     .size(250.dp)
-                    .padding(top = 20.dp))
+                    .padding(top = 20.dp)
+            )
         }
 
 

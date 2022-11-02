@@ -40,9 +40,11 @@ fun Dashboard(
         { section ->
             when (section) {
                 DashboardSection.Home -> HomeScreen(navController)
+                else -> {}
             }
             when (section) {
                 DashboardSection.ShoppingCart -> CheckoutScreen()
+                else -> {}
             }
         }
     }
