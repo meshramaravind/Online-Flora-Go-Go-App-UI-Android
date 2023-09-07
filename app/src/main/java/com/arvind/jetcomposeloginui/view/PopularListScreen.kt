@@ -18,9 +18,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -31,7 +33,6 @@ import com.arvind.jetcomposeloginui.ui.theme.black
 import com.arvind.jetcomposeloginui.ui.theme.colorPrimary
 import com.arvind.jetcomposeloginui.ui.theme.ghost_white
 import com.arvind.jetcomposeloginui.ui.theme.white
-
 
 @Composable
 fun PopularListScreen(navController: NavController) {
@@ -80,6 +81,11 @@ fun PopularListScreen(navController: NavController) {
         }
     }
 }
+
+@Preview
+@Composable
+fun PopularListScreenPreview() = PopularListScreen(NavController(LocalContext.current))
+
 
 @Composable
 fun PopularItemsSection(navController: NavController) {
@@ -239,7 +245,11 @@ fun PopularItemsSection(navController: NavController) {
     }
 }
 
+@Preview
+@Composable
+fun PopularItemsSectionPreview() = PopularItemsSection(NavController(LocalContext.current))
 
+@Preview
 @Composable
 fun HeaderHomePopularItems() {
     Image(

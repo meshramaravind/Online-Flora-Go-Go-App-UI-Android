@@ -20,14 +20,14 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+}
 
-    @Composable
-    fun JetComposeLoginUiMain() {
-        JetComposeLoginUITheme {
-            Surface(color = MaterialTheme.colors.background) {
-                Navigation()
-            }
-
+@Preview
+@Composable
+fun JetComposeLoginUiMain() {
+    JetComposeLoginUITheme {
+        Surface(color = MaterialTheme.colors.background) {
+            Navigation()
         }
     }
 }
