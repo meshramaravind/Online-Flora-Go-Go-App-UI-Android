@@ -68,11 +68,11 @@ fun PopularListScreen(navController: NavController) {
                     .fillMaxSize()
                     .padding(20.dp)) {
 
-                    PopularItemsSewction(navController)
+                    PopularItemsSection(navController)
                     Spacer(modifier = Modifier.padding(10.dp))
-                    PopularItemsSewction(navController)
+                    PopularItemsSection(navController)
                     Spacer(modifier = Modifier.padding(10.dp))
-                    PopularItemsSewction(navController)
+                    PopularItemsSection(navController)
                 }
             }
 
@@ -82,7 +82,7 @@ fun PopularListScreen(navController: NavController) {
 }
 
 @Composable
-fun PopularItemsSewction(navController: NavController) {
+fun PopularItemsSection(navController: NavController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
