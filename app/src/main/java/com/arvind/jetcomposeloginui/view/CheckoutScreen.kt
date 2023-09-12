@@ -67,16 +67,13 @@ fun CheckoutScreen() {
                     ApplyCoupon()
                     Spacer(modifier = Modifier.padding(10.dp))
                     CheckoutDetails()
-
-
                 }
-
             }
-
         }
     }
 }
 
+@Preview
 @Composable
 fun HeaderCartItems() {
     Image(
@@ -108,10 +105,10 @@ fun HeaderCartItems() {
             fontWeight = FontWeight.Bold,
             fontSize = 16.sp,
         )
-
     }
 }
 
+@Preview
 @Composable
 fun ItemsFlower() {
     Box(modifier = Modifier
@@ -229,17 +226,15 @@ fun ItemsFlower() {
                                     )
                                 }
                             }
-
-
                         }
                     }
                 }
             }
-
         }
     }
 }
 
+@Preview
 @Composable
 fun ApplyCoupon() {
     Column(modifier = Modifier
@@ -291,10 +286,10 @@ fun ApplyCoupon() {
                     color = white)
             }
         }
-
     }
 }
 
+@Preview
 @Composable
 fun CheckoutDetails() {
     Box(modifier = Modifier
@@ -413,11 +408,7 @@ fun CheckoutDetails() {
                             .size(20.dp, 20.dp)
                     )
                 }
-
             }
         }
     }
-
 }
-
-

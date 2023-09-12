@@ -17,8 +17,10 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -29,7 +31,7 @@ import com.arvind.jetcomposeloginui.ui.theme.*
 
 @Composable
 fun HomeScreen(navController: NavController) {
-    var pageCount by remember { mutableStateOf(0) }
+    val pageCount by remember { mutableStateOf(0) }
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -89,7 +91,11 @@ fun HomeScreen(navController: NavController) {
     }
 }
 
+@Preview
+@Composable
+fun HomeScreenPreview() = HomeScreen(NavController(LocalContext.current))
 
+@Preview
 @Composable
 fun HeaderHome() {
     Image(
@@ -124,6 +130,7 @@ fun HeaderHome() {
     }
 }
 
+@Preview
 @Composable
 fun SlidingBannerView() {
     Image(
@@ -198,6 +205,11 @@ fun PageIndicator(pageCount: Int) {
 
 }
 
+@Preview
+@Composable
+fun PageIndicatorPreview() = PageIndicator(2)
+
+@Preview
 @Composable
 fun CategoryView() {
     Row(
@@ -244,6 +256,13 @@ fun CategoryButton(
     }
 }
 
+@Preview
+@Composable
+fun CategoryButtonPreview() = CategoryButton(
+    painterResource(id = R.drawable.ic_wedding_arch),
+    Color(0xffFFFFFF),
+)
+
 @Composable
 fun PopularItemSection(navController: NavController) {
     Row(
@@ -260,11 +279,15 @@ fun PopularItemSection(navController: NavController) {
         }
     }
     Spacer(modifier = Modifier.padding(10.dp))
-    PouplarItems(navController)
+    PopularItems(navController)
 }
 
+@Preview
 @Composable
-fun PouplarItems(navController: NavController) {
+fun PopularItemSectionPreview() = PopularItemSection(NavController(LocalContext.current))
+
+@Composable
+fun PopularItems(navController: NavController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -420,4 +443,6 @@ fun PouplarItems(navController: NavController) {
     }
 }
 
-
+@Preview
+@Composable
+fun PopularItemsPreview() = PopularItems(NavController(LocalContext.current))

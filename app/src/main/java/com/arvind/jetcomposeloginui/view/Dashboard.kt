@@ -11,7 +11,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.arvind.jetcomposeloginui.R
@@ -35,7 +37,8 @@ fun Dashboard(
         val modifier = Modifier.padding(innerPadding)
         Crossfade(
             modifier = modifier,
-            targetState = sectionState.value
+            targetState = sectionState.value,
+            label = ""
         )
         { section ->
             when (section) {
@@ -49,6 +52,10 @@ fun Dashboard(
         }
     }
 }
+
+@Preview
+@Composable
+fun DashboardPreview() = Dashboard(NavController(LocalContext.current))
 
 @Composable
 private fun BottomBar(
@@ -84,6 +91,12 @@ private fun BottomBar(
         }
     }
 }
+@Preview
+@Composable
+fun BottomBarPreview() = BottomBar(
+    currentSection = DashboardSection.Home,
+    items = DashboardSection.values().toList(),
+    ) {}
 
 private enum class DashboardSection(
     val icon: Int,

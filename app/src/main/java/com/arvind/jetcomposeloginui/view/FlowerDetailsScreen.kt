@@ -16,8 +16,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -86,7 +88,7 @@ fun FlowerDetailsScreen(navController: NavController) {
                             Spacer(modifier = Modifier.padding(20.dp))
                             FlowerAbout()
                             Spacer(modifier = Modifier.padding(20.dp))
-                            FlowerAddtoCartButton(navController)
+                            FlowerAddToCartButton(navController)
                         }
 
                     }
@@ -97,6 +99,11 @@ fun FlowerDetailsScreen(navController: NavController) {
     )
 }
 
+@Preview
+@Composable
+fun FlowerDetailsScreenPreview() = FlowerDetailsScreen(NavController(LocalContext.current))
+
+@Preview
 @Composable
 fun FlowerTitleSubtitle() {
     Column(modifier = Modifier.fillMaxWidth()) {
@@ -114,6 +121,7 @@ fun FlowerTitleSubtitle() {
     }
 }
 
+@Preview
 @Composable
 fun AddtoCartPrice() {
     val counter = remember {
@@ -177,6 +185,7 @@ fun AddtoCartPrice() {
     }
 }
 
+@Preview
 @Composable
 fun FlowerAbout() {
     Column(modifier = Modifier.fillMaxWidth()) {
@@ -198,7 +207,7 @@ fun FlowerAbout() {
 }
 
 @Composable
-fun FlowerAddtoCartButton(navController: NavController) {
+fun FlowerAddToCartButton(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -232,7 +241,9 @@ fun FlowerAddtoCartButton(navController: NavController) {
     }
 
 }
-
+@Preview
+@Composable
+fun FlowerAddToCartButtonPreview() = FlowerAddToCartButton(NavController(LocalContext.current))
 
 @Composable
 fun HeaderImagesSlider(pageCount: Int) {
@@ -259,6 +270,10 @@ fun HeaderImagesSlider(pageCount: Int) {
     }
     PageIndicatorFlower(pageCount)
 }
+
+@Preview
+@Composable
+fun HeaderImagesSliderPreview() = HeaderImagesSlider(3)
 
 @Composable
 fun PageIndicatorFlower(pageCount: Int) {
@@ -327,4 +342,6 @@ fun PageIndicatorFlower(pageCount: Int) {
 
 }
 
-
+@Preview
+@Composable
+fun PageIndicatorFlowerPreview() = PageIndicatorFlower(3)
